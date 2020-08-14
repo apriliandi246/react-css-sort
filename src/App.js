@@ -1,36 +1,48 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
+import { sortProperties } from './util/sort';
 import './style/main.css';
+import RadioButton from './components/RadioButton';
+import PropertiesArea from './components/PropertiesArea';
+import Buttons from './components/Buttons';
+import Head from './components/Head';
 
 
 class App extends React.Component {
    state = {
       min: false,
       max: false,
-      properties: ``,
-      result: ``
+      result: ``,
+      properties: ``
    }
 
    onChangeMin = () => {
-      this.setState({
-         min: true,
-         max: false
-      });
+      this.setState({ min: true, max: false });
    }
 
    onChangeMax = () => {
-      this.setState({
-         min: false,
-         max: true
-      });
+      this.setState({ min: false, max: true });
    }
 
    onInputChange = (event) => {
-      this.setState({ properties: event.target.value.trim() });
+      this.setState({ properties: event.target.value });
    }
 
    onClick = () => {
-      this.setState({ result: this.state.properties });
+      const { min, max, properties } = this.state;
+
+      if (!min && !max) {
+         return;
+      }
+
+      const arrProperties = properties.split('\n');
+
+      const format = {
+         smallerToBigger: min,
+         biggerToSmaller: max
+      }
+
+      this.setState({ result: sortProperties(arrProperties, format) });
    }
 
    onCopy = () => {
@@ -39,64 +51,30 @@ class App extends React.Component {
    }
 
    render() {
+      const { min, max, result, properties } = this.state;
+
       return (
          <div className="container">
-            <h1>Make it Pretty</h1>
+            <Head />
 
-            <hr />
+            <RadioButton
+               min={min}
+               max={max}
+               onChangeMin={this.onChangeMin}
+               onChangeMax={this.onChangeMax}
+            />
 
-            <div className="min">
-               <input onChange={this.onChangeMin} checked={this.state.min} type="radio" id="min" value="min" />
-               <label htmlFor="min">smaller to bigger</label>
-            </div>
+            <PropertiesArea
+               value={result}
+               onInputChange={this.onInputChange}
+            />
 
-            <div className="max">
-               <input onChange={this.onChangeMax} checked={this.state.max} type="radio" id="max" value="max" />
-               <label htmlFor="max">bigger to smaller</label>
-            </div>
-
-            <div className="properties-field">
-               <div className="input-form">
-                  <label htmlFor="properties">Properties</label>
-                  <textarea
-                     onChange={this.onInputChange}
-                     placeholder="properties...."
-                     autoComplete="false"
-                     spellCheck="false"
-                     id="description"
-                     cols="65"
-                     rows="20"
-                  ></textarea>
-               </div>
-
-               <div className="input-form">
-                  <label htmlFor="result">Result</label>
-                  <textarea
-                     value={this.state.result}
-                     placeholder="result...."
-                     id="result"
-                     cols="65"
-                     rows="20"
-                     disabled
-                  ></textarea>
-               </div>
-            </div>
-
-            <div className="buttons">
-               <button
-                  className="btn-one"
-                  onClick={this.onClick}
-                  disabled={this.state.properties.length === 0 ? true : false}>
-                  Make it pretty
-                  </button>
-
-               <button
-                  className="btn-two"
-                  onClick={this.onCopy}
-                  disabled={this.state.result.length === 0 ? true : false}>
-                  Copy
-                  </button>
-            </div>
+            <Buttons
+               result={result}
+               properties={properties}
+               onCopy={this.onCopy}
+               onClick={this.onClick}
+            />
          </div>
       );
    }
