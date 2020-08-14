@@ -19,7 +19,7 @@ class PropertiesArea extends Component {
                ></textarea>
             </div>
 
-            <div className="input-form">
+            <div className="input-form result">
                <label htmlFor="result">Result</label>
                <textarea
                   value={value}

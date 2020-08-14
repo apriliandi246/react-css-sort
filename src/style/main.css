@@ -5,7 +5,7 @@ body {
 
 .container {
    width: 90%;
-   margin: 50px auto;
+   margin: 55px auto;
 }
 
 
@@ -26,14 +26,17 @@ hr {
 }
 
 
-input[type="radio"] {
+.min input[type="radio"],
+.max input[type="radio"] {
    width: 25px;
    height: 25px;
+   cursor: pointer;
 }
 
 .min label,
 .max label {
    color: white;
+   cursor: pointer;
    font-size: 20px;
    margin-left: 7px;
    font-weight: bold;
@@ -62,17 +65,21 @@ input[type="radio"] {
 
 .input-form textarea {
    width: 100%;
-   border: none;
    outline: none;
-   padding: 12px;
+   padding: 15px;
    display: block;
-   font-size: 17px;
+   font-size: 18px;
    margin-top: 17px;
    color: whitesmoke;
    white-space: pre-line;
    box-sizing: border-box;
+   border: 1px solid #38444d;
    background-color: rgb(37, 51, 65);
    transition: background-color 0.2s;
+}
+
+.result textarea {
+   transition: none;
 }
 
 .input-form textarea:focus {
@@ -85,7 +92,8 @@ input[type="radio"] {
 
 
 .buttons {
-   text-align: center;
+   display: flex;
+   justify-content: center;
 }
 
 .buttons .btn-one,
