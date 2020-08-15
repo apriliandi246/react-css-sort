@@ -7,12 +7,24 @@ class RadioButton extends Component {
       return (
          <React.Fragment>
             <div className="min">
-               <input onChange={onChangeMin} checked={min} type="radio" id="min" value="min" />
+               <input
+                  id="min"
+                  value="min"
+                  type="radio"
+                  checked={min}
+                  onChange={onChangeMin}
+               />
                <label htmlFor="min">smaller to bigger</label>
             </div>
 
             <div className="max">
-               <input onChange={onChangeMax} checked={max} type="radio" id="max" value="max" />
+               <input
+                  id="max"
+                  value="max"
+                  type="radio"
+                  checked={max}
+                  onChange={onChangeMax}
+               />
                <label htmlFor="max">bigger to smaller</label>
             </div>
          </React.Fragment>

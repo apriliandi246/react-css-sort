@@ -1,11 +1,11 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
-import { sortProperties } from './util/sort';
-import './style/main.css';
 import RadioButton from './components/RadioButton';
 import PropertiesArea from './components/PropertiesArea';
 import Buttons from './components/Buttons';
 import Head from './components/Head';
+import { sortProperties } from './util/sort';
+import './style/main.css';
 
 
 class App extends React.Component {
@@ -15,6 +15,9 @@ class App extends React.Component {
       result: ``,
       properties: ``
    }
+
+   inputProperties = React.createRef();
+
 
    onChangeMin = () => {
       this.setState({ min: true, max: false });
@@ -50,6 +53,17 @@ class App extends React.Component {
       alert('Copied');
    }
 
+   onClear = () => {
+      this.inputProperties.current.value = "";
+
+      this.setState({
+         min: false,
+         max: false,
+         result: ``,
+         properties: ``
+      });
+   }
+
    render() {
       const { min, max, result, properties } = this.state;
 
@@ -66,14 +80,18 @@ class App extends React.Component {
 
             <PropertiesArea
                value={result}
+               inputPropertiesRef={this.inputProperties}
                onInputChange={this.onInputChange}
             />
 
             <Buttons
+               min={min}
+               max={max}
                result={result}
                properties={properties}
                onCopy={this.onCopy}
                onClick={this.onClick}
+               onClear={this.onClear}
             />
          </div>
       );

@@ -2,22 +2,32 @@ import React, { Component } from 'react';
 
 class Buttons extends Component {
    render() {
-      const { result, properties, onCopy, onClick } = this.props;
+      const { min, max, result, properties, onCopy, onClick, onClear } = this.props;
 
       return (
          <div className="buttons">
             <button
-               className="btn-one"
                onClick={onClick}
-               disabled={properties.length === 0 ? true : false}>
+               className="btn-one"
+               disabled={properties.length !== 0 && (min === true || max === true) ? false : true}
+            >
                Make it pretty
             </button>
 
             <button
-               className="btn-two"
                onClick={onCopy}
-               disabled={result.length === 0 ? true : false}>
+               className="btn-two"
+               disabled={result.length === 0 ? true : false}
+            >
                Copy
+            </button>
+
+            <button
+               onClick={onClear}
+               className="btn-three"
+               disabled={properties.length === 0 ? true : false}
+            >
+               Clear
             </button>
          </div>
       );
