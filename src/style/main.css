@@ -5,7 +5,7 @@ body {
 
 .container {
    width: 90%;
-   margin: 55px auto;
+   margin: 40px auto;
 }
 
 
@@ -65,14 +65,16 @@ hr {
 
 .input-form textarea {
    width: 100%;
-   outline: none;
+   resize: none;
    padding: 15px;
+   outline: none;
    display: block;
    font-size: 18px;
    margin-top: 17px;
    color: whitesmoke;
    white-space: pre-line;
    box-sizing: border-box;
+   font-family: monospace;
    border: 1px solid #38444d;
    background-color: rgb(37, 51, 65);
    transition: background-color 0.2s;
@@ -97,7 +99,8 @@ hr {
 }
 
 .buttons .btn-one,
-.buttons .btn-two {
+.buttons .btn-two,
+.buttons .btn-three {
    border: none;
    width: 300px;
    padding: 10px;
@@ -117,15 +120,14 @@ hr {
 }
 
 .buttons .btn-one:hover,
-.buttons .btn-two:hover {
+.buttons .btn-two:hover,
+.buttons .btn-three:hover {
    color: #87cefa;
    background-color: #192734;
 }
 
-.buttons .btn-one:disabled {
-   pointer-events: none;
-}
-
-.buttons .btn-two:disabled {
+.buttons .btn-one:disabled,
+.buttons .btn-two:disabled,
+.buttons .btn-three:disabled {
    pointer-events: none;
 }
