@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import SortButton from './common/SortButton';
+import CopyButton from './common/CopyButton';
+import ClearButton from './common/ClearButton';
 
 class Buttons extends Component {
    render() {
@@ -6,29 +9,22 @@ class Buttons extends Component {
 
       return (
          <div className="buttons">
-            <button
-               onClick={onClick}
-               className="btn-one"
-               disabled={properties.length !== 0 && (min === true || max === true) ? false : true}
-            >
-               Make it pretty
-            </button>
+            <SortButton
+               min={min}
+               max={max}
+               properties={properties}
+               onSort={onClick}
+            />
 
-            <button
-               onClick={onCopy}
-               className="btn-two"
-               disabled={result.length === 0 ? true : false}
-            >
-               Copy
-            </button>
+            <CopyButton
+               result={result}
+               onCopy={onCopy}
+            />
 
-            <button
-               onClick={onClear}
-               className="btn-three"
-               disabled={properties.length === 0 ? true : false}
-            >
-               Clear
-            </button>
+            <ClearButton
+               properties={properties}
+               onClear={onClear}
+            />
          </div>
       );
    }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import UnsortPropertyInput from './common/UnsortPrepertyInput';
+import SortPropertyField from './common/SortPropertyField';
 
 class PropertiesArea extends Component {
    render() {
@@ -6,31 +8,14 @@ class PropertiesArea extends Component {
 
       return (
          <div className="properties-field">
-            <div className="input-form properties">
-               <label htmlFor="properties">Properties</label>
-               <textarea
-                  cols="65"
-                  rows="20"
-                  id="description"
-                  spellCheck="false"
-                  autoComplete="false"
-                  onChange={onInputChange}
-                  ref={inputPropertiesRef}
-                  placeholder="Properties...."
-               ></textarea>
-            </div>
+            <UnsortPropertyInput
+               inputPropertiesRef={inputPropertiesRef}
+               onInputChange={onInputChange}
+            />
 
-            <div className="input-form result">
-               <label htmlFor="result">Result</label>
-               <textarea
-                  disabled
-                  cols="65"
-                  rows="20"
-                  id="result"
-                  value={value}
-                  placeholder="Result...."
-               ></textarea>
-            </div>
+            <SortPropertyField
+               result={value}
+            />
          </div>
       );
    }
