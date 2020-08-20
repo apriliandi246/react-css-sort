@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SortPropertyField = ({ result }) => {
+const SortPropertyField = ({ sortedProperties }) => {
    return (
       <div className="input-form result">
          <label htmlFor="result">Result</label>
@@ -9,7 +9,7 @@ const SortPropertyField = ({ result }) => {
             cols="65"
             rows="20"
             id="result"
-            value={result}
+            value={sortedProperties}
             placeholder="Result...."
          ></textarea>
       </div>

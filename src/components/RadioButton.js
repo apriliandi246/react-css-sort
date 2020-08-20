@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class RadioButton extends Component {
    render() {
-      const { min, max, onChangeMin, onChangeMax } = this.props;
+      const { minSort, maxSort, onChangeMin, onChangeMax } = this.props;
 
       return (
          <React.Fragment>
@@ -11,7 +11,7 @@ class RadioButton extends Component {
                   id="min"
                   value="min"
                   type="radio"
-                  checked={min}
+                  checked={minSort}
                   onChange={onChangeMin}
                />
                <label htmlFor="min">smaller to bigger</label>
@@ -22,7 +22,7 @@ class RadioButton extends Component {
                   id="max"
                   value="max"
                   type="radio"
-                  checked={max}
+                  checked={maxSort}
                   onChange={onChangeMax}
                />
                <label htmlFor="max">bigger to smaller</label>

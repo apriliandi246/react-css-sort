@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ClearButton = ({ properties, onClear }) => {
+const ClearButton = ({ unSortedProperties, onClear }) => {
    return (
       <button
          onClick={onClear}
          className="btn-three"
-         disabled={properties.length === 0 ? true : false}
+         disabled={unSortedProperties.length === 0 ? true : false}
       >
          Clear
       </button>

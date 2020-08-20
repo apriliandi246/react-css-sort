@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UnsortPropertyInput = ({ inputPropertiesRef, onInputChange }) => {
+const UnsortPropertyInput = ({ inputPropertiesRef, onChange }) => {
    return (
       <div className="input-form properties">
          <label htmlFor="properties">Properties</label>
@@ -10,7 +10,7 @@ const UnsortPropertyInput = ({ inputPropertiesRef, onInputChange }) => {
             id="description"
             spellCheck="false"
             autoComplete="false"
-            onChange={onInputChange}
+            onChange={onChange}
             ref={inputPropertiesRef}
             placeholder="Properties...."
          ></textarea>

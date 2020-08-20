@@ -5,24 +5,24 @@ import ClearButton from './common/ClearButton';
 
 class Buttons extends Component {
    render() {
-      const { min, max, result, properties, onCopy, onClick, onClear } = this.props;
+      const { minSort, maxSort, sortedProperties, unSortedProperties, onCopy, onClick, onClear } = this.props;
 
       return (
          <div className="buttons">
             <SortButton
-               min={min}
-               max={max}
-               properties={properties}
+               minSort={minSort}
+               maxSort={maxSort}
+               unSortedProperties={unSortedProperties}
                onSort={onClick}
             />
 
             <CopyButton
-               result={result}
+               sortedProperties={sortedProperties}
                onCopy={onCopy}
             />
 
             <ClearButton
-               properties={properties}
+               unSortedProperties={unSortedProperties}
                onClear={onClear}
             />
          </div>

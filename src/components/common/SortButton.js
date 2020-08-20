@@ -1,11 +1,11 @@
 import React from 'react';
 
-const SortButton = ({ min, max, properties, onSort }) => {
+const SortButton = ({ minSort, maxSort, unSortedProperties, onSort }) => {
    return (
       <button
          onClick={onSort}
          className="btn-one"
-         disabled={properties.length !== 0 && (min === true || max === true) ? false : true}
+         disabled={unSortedProperties.length !== 0 && (minSort === true || maxSort === true) ? false : true}
       >
          Sort
       </button>
