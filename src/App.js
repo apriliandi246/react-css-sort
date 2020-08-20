@@ -10,46 +10,46 @@ import './style/main.css';
 
 class App extends React.Component {
    state = {
-      min: false,
-      max: false,
-      result: ``,
-      properties: ``
+      minSort: false,
+      maxSort: false,
+      sortedProperties: ``,
+      unSortedProperties: ``
    }
 
    inputProperties = React.createRef();
 
 
    onChangeMin = () => {
-      this.setState({ min: true, max: false });
+      this.setState({ minSort: true, maxSort: false });
    }
 
    onChangeMax = () => {
-      this.setState({ min: false, max: true });
+      this.setState({ minSort: false, maxSort: true });
    }
 
    onInputChange = (event) => {
-      this.setState({ properties: event.target.value });
+      this.setState({ unSortedProperties: event.target.value });
    }
 
    onClick = () => {
-      const { min, max, properties } = this.state;
+      const { minSort, maxSort, unSortedProperties } = this.state;
 
-      if (!min && !max) {
+      if (!minSort && !maxSort) {
          return;
       }
 
-      const arrProperties = properties.split('\n');
+      const arrProperties = unSortedProperties.split('\n');
 
       const format = {
-         smallerToBigger: min,
-         biggerToSmaller: max
+         smallerToBigger: minSort,
+         biggerToSmaller: maxSort
       }
 
-      this.setState({ result: sortProperties(arrProperties, format) });
+      this.setState({ sortedProperties: sortProperties(arrProperties, format) });
    }
 
    onCopy = () => {
-      copy(this.state.result);
+      copy(this.state.sortedProperties);
       alert('Copied');
    }
 
@@ -57,38 +57,38 @@ class App extends React.Component {
       this.inputProperties.current.value = "";
 
       this.setState({
-         min: false,
-         max: false,
-         result: ``,
-         properties: ``
+         minSort: false,
+         maxSort: false,
+         sortedProperties: ``,
+         unSortedProperties: ``
       });
    }
 
    render() {
-      const { min, max, result, properties } = this.state;
+      const { minSort, maxSort, sortedProperties, unSortedProperties } = this.state;
 
       return (
          <div className="container">
             <Head />
 
             <RadioButton
-               min={min}
-               max={max}
+               minSort={minSort}
+               maxSort={maxSort}
                onChangeMin={this.onChangeMin}
                onChangeMax={this.onChangeMax}
             />
 
             <PropertiesArea
-               value={result}
+               sortedProperties={sortedProperties}
                inputPropertiesRef={this.inputProperties}
-               onInputChange={this.onInputChange}
+               onChange={this.onInputChange}
             />
 
             <Buttons
-               min={min}
-               max={max}
-               result={result}
-               properties={properties}
+               minSort={minSort}
+               maxSort={maxSort}
+               sortedProperties={sortedProperties}
+               unSortedProperties={unSortedProperties}
                onCopy={this.onCopy}
                onClick={this.onClick}
                onClear={this.onClear}
