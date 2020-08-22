@@ -1,10 +1,10 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
+import { sortProperties } from './util/sort';
 import RadioButton from './components/RadioButton';
 import PropertiesArea from './components/PropertiesArea';
 import Buttons from './components/Buttons';
 import Head from './components/Head';
-import { sortProperties } from './util/sort';
 import './style/main.css';
 
 
@@ -15,9 +15,6 @@ class App extends React.Component {
       sortedProperties: ``,
       unSortedProperties: ``
    }
-
-   inputProperties = React.createRef();
-
 
    onChangeMin = () => {
       this.setState({ minSort: true, maxSort: false });
@@ -31,19 +28,19 @@ class App extends React.Component {
       this.setState({ unSortedProperties: event.target.value });
    }
 
-   onClick = () => {
+   onSort = () => {
       const { minSort, maxSort, unSortedProperties } = this.state;
 
       if (!minSort && !maxSort) {
          return;
       }
 
-      const arrProperties = unSortedProperties.split('\n');
-
       const format = {
          smallerToBigger: minSort,
          biggerToSmaller: maxSort
-      }
+      };
+
+      const arrProperties = unSortedProperties.split('\n');
 
       this.setState({ sortedProperties: sortProperties(arrProperties, format) });
    }
@@ -54,8 +51,6 @@ class App extends React.Component {
    }
 
    onClear = () => {
-      this.inputProperties.current.value = "";
-
       this.setState({
          minSort: false,
          maxSort: false,
@@ -79,8 +74,8 @@ class App extends React.Component {
             />
 
             <PropertiesArea
+               value={unSortedProperties}
                sortedProperties={sortedProperties}
-               inputPropertiesRef={this.inputProperties}
                onChange={this.onInputChange}
             />
 
@@ -90,7 +85,7 @@ class App extends React.Component {
                sortedProperties={sortedProperties}
                unSortedProperties={unSortedProperties}
                onCopy={this.onCopy}
-               onClick={this.onClick}
+               onClick={this.onSort}
                onClear={this.onClear}
             />
          </div>

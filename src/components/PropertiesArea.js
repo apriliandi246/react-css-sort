@@ -4,12 +4,12 @@ import SortPropertyField from './common/SortPropertyField';
 
 class PropertiesArea extends Component {
    render() {
-      const { sortedProperties, inputPropertiesRef, onChange } = this.props;
+      const { value, sortedProperties, onChange } = this.props;
 
       return (
          <div className="properties-field">
             <UnsortPropertyInput
-               inputPropertiesRef={inputPropertiesRef}
+               value={value}
                onChange={onChange}
             />
 
