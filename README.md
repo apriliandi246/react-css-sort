@@ -1,13 +1,13 @@
 <h1 align="center">Make it Pretty </h1>
 
 
-<hr>
-
-
 <br />
 
 
 <h2 align="center">~~Sort your css properties~~</h2>
+
+
+<br />
 
 
 <h3>From this :</h3>
