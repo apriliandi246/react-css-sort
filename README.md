@@ -1,13 +1,13 @@
 <h1 align="center">Make it Pretty </h1>
 
+
 <hr>
 
+
 <br />
+
 
 <h2 align="center">~~Sort your css properties~~</h2>
-
-
-<br />
 
 
 <h3>From this :</h3>
@@ -33,7 +33,7 @@
 <br />
 
 
-<h3>To this :</h3>
+<h3>To this (smaller to bigger) :</h3>
 
 ```css
    width: 100%;
@@ -56,7 +56,7 @@
 <br />
 
 
-<h3>Or this :</h3>
+<h3>Or this (bigger to smaller) :</h3>
 
 ```css
    transition: background-color 0.2s;
