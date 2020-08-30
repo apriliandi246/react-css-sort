@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import SortButton from './common/SortButton';
-import CopyButton from './common/CopyButton';
-import ClearButton from './common/ClearButton';
+import SortButton from './SortButton';
+import CopyButton from './CopyButton';
+import ClearButton from './ClearButton';
 
 class Buttons extends Component {
    render() {

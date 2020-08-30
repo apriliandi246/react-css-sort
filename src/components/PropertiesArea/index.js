@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import UnsortPropertyInput from './common/UnsortPrepertyInput';
-import SortPropertyField from './common/SortPropertyField';
+import UnsortPropertyInput from './UnsortPrepertyInput';
+import SortPropertyField from './SortPropertyField';
 
 class PropertiesArea extends Component {
    render() {

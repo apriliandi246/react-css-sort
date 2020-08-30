@@ -1,10 +1,10 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
 import { sortProperties } from './util/sort';
-import RadioButton from './components/RadioButton';
-import PropertiesArea from './components/PropertiesArea';
-import Buttons from './components/Buttons';
-import Head from './components/Head';
+import RadioButton from './components/RadioButton/index';
+import PropertiesArea from './components/PropertiesArea/index';
+import Buttons from './components/Button/index';
+import Head from './components/Head/index';
 import './style/main.css';
 
 
