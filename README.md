@@ -1,4 +1,4 @@
-<h1 align="center">Make it Pretty </h1>
+<h1 align="center">sort-it</h1>
 
 <br />
 
