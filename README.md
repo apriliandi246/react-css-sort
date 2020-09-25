@@ -1,18 +1,11 @@
 <h1 align="center">Make it Pretty </h1>
 
-
 <br />
-
-
-<h2 align="center">~~Sort your css properties~~</h2>
-
-
-<br />
-
 
 <h3>From this :</h3>
 
 ```css
+.component {
    white-space: pre-line;
    display: block;
    resize: none;
@@ -27,15 +20,15 @@
    background-color: #253341;
    margin-top: 17px;
    color: #f5f5f5;
+}
 ```
 
-
 <br />
-
 
 <h3>To this (smaller to bigger) :</h3>
 
 ```css
+.component {
    width: 100%;
    resize: none;
    padding: 15px;
@@ -50,15 +43,15 @@
    background-color: #253341;
    border: 1px solid #38444d;
    transition: background-color 0.2s;
+}
 ```
 
-
 <br />
-
 
 <h3>Or this (bigger to smaller) :</h3>
 
 ```css
+.component {
    transition: background-color 0.2s;
    border: 1px solid #38444d;
    background-color: #253341;
@@ -73,4 +66,5 @@
    padding: 15px;
    resize: none;
    width: 100%;
+}
 ```
