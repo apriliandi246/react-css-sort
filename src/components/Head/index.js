@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Head = () => {
+export default function Head() {
    return (
       <React.Fragment>
          <h1>Make it Pretty</h1>
@@ -8,5 +8,3 @@ const Head = () => {
       </React.Fragment>
    );
 }
-
-export default Head;

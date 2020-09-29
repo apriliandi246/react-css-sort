@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SortButton = ({ minSort, maxSort, unSortedProperties, onSort }) => {
+
+export default function SortButton({ minSort, maxSort, unSortedProperties, onSort }) {
    return (
       <button
          onClick={onSort}
@@ -11,5 +12,3 @@ const SortButton = ({ minSort, maxSort, unSortedProperties, onSort }) => {
       </button>
    );
 }
-
-export default SortButton;

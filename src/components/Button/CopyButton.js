@@ -1,6 +1,7 @@
 import React from 'react';
 
-const CopyButton = ({ sortedProperties, onCopy }) => {
+
+export default function CopyButton({ onCopy, sortedProperties }) {
    return (
       <button
          onClick={onCopy}
@@ -11,5 +12,3 @@ const CopyButton = ({ sortedProperties, onCopy }) => {
       </button>
    );
 }
-
-export default CopyButton;

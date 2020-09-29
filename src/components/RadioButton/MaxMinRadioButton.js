@@ -1,6 +1,7 @@
 import React from 'react';
 
-const MaxMinRadioButton = ({ maxSort, onChangeMax }) => {
+
+export default function MaxMinRadioButton({ maxSort, onChangeMax }) {
    return (
       <div className="max">
          <input
@@ -14,5 +15,3 @@ const MaxMinRadioButton = ({ maxSort, onChangeMax }) => {
       </div>
    );
 }
-
-export default MaxMinRadioButton;

@@ -1,6 +1,7 @@
 import React from 'react';
 
-const ClearButton = ({ unSortedProperties, onClear }) => {
+
+export default function ClearButton({ onClear, unSortedProperties }) {
    return (
       <button
          onClick={onClear}
@@ -11,5 +12,3 @@ const ClearButton = ({ unSortedProperties, onClear }) => {
       </button>
    );
 }
-
-export default ClearButton;

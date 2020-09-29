@@ -1,6 +1,7 @@
 import React from 'react';
 
-const SortPropertyField = ({ sortedProperties }) => {
+
+export default function SortPropertyField({ sortedProperties }) {
    return (
       <div className="input-form result">
          <label htmlFor="result">Result</label>
@@ -15,5 +16,3 @@ const SortPropertyField = ({ sortedProperties }) => {
       </div>
    );
 }
-
-export default SortPropertyField;

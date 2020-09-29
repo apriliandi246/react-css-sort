@@ -1,96 +1,86 @@
 import React from 'react';
 import copy from 'copy-to-clipboard';
 import { sortProperties } from './util/sort';
+import Head from './components/Head/index';
+import Buttons from './components/Button/index';
 import RadioButton from './components/RadioButton/index';
 import PropertiesArea from './components/PropertiesArea/index';
-import Buttons from './components/Button/index';
-import Head from './components/Head/index';
 import './style/main.css';
 
 
-class App extends React.Component {
-   state = {
-      minSort: false,
-      maxSort: false,
-      sortedProperties: ``,
-      unSortedProperties: ``
+export default function App() {
+   const [minSort, setMinSort] = React.useState(false);
+   const [maxSort, setMaxSort] = React.useState(false);
+   const [sortedProperties, setSortedProperties] = React.useState(``);
+   const [unSortedProperties, setUnsortedProperties] = React.useState(``);
+
+   function onChangeMin() {
+      setMinSort(true);
+      setMaxSort(false);
    }
 
-   onChangeMin = () => {
-      this.setState({ minSort: true, maxSort: false });
+   function onChangeMax() {
+      setMaxSort(true);
+      setMinSort(false);
    }
 
-   onChangeMax = () => {
-      this.setState({ minSort: false, maxSort: true });
+   function onInputChange(event) {
+      setUnsortedProperties(event.target.value);
    }
 
-   onInputChange = (event) => {
-      this.setState({ unSortedProperties: event.target.value });
-   }
-
-   onSort = () => {
-      const { minSort, maxSort, unSortedProperties } = this.state;
-
-      if (!minSort && !maxSort) {
+   function onSort() {
+      if (minSort === false && maxSort === false) {
          return;
       }
 
       const format = {
          smallerToBigger: minSort,
          biggerToSmaller: maxSort
-      };
+      }
 
-      const arrProperties = unSortedProperties.split('\n');
+      const sortedProperties = sortProperties(unSortedProperties.split("\n"), format);
 
-      this.setState({ sortedProperties: sortProperties(arrProperties, format) });
+      setSortedProperties(sortedProperties);
    }
 
-   onCopy = () => {
-      copy(this.state.sortedProperties);
-      alert('Copied');
+   function onCopy() {
+      copy(sortedProperties);
+      alert("Copied....");
    }
 
-   onClear = () => {
-      this.setState({
-         minSort: false,
-         maxSort: false,
-         sortedProperties: ``,
-         unSortedProperties: ``
-      });
+   function onClear() {
+      setMinSort(false);
+      setMaxSort(false);
+      setSortedProperties(``);
+      setUnsortedProperties(``);
    }
 
-   render() {
-      const { minSort, maxSort, sortedProperties, unSortedProperties } = this.state;
+   return (
+      <div className="container">
+         <Head />
 
-      return (
-         <div className="container">
-            <Head />
+         <RadioButton
+            minSort={minSort}
+            maxSort={maxSort}
+            onChangeMin={onChangeMin}
+            onChangeMax={onChangeMax}
+         />
 
-            <RadioButton
-               minSort={minSort}
-               maxSort={maxSort}
-               onChangeMin={this.onChangeMin}
-               onChangeMax={this.onChangeMax}
-            />
+         <PropertiesArea
+            value={unSortedProperties}
+            sortedProperties={sortedProperties}
+            onChange={onInputChange}
+         />
 
-            <PropertiesArea
-               value={unSortedProperties}
-               sortedProperties={sortedProperties}
-               onChange={this.onInputChange}
-            />
-
-            <Buttons
-               minSort={minSort}
-               maxSort={maxSort}
-               sortedProperties={sortedProperties}
-               unSortedProperties={unSortedProperties}
-               onCopy={this.onCopy}
-               onClick={this.onSort}
-               onClear={this.onClear}
-            />
-         </div>
-      );
-   }
+         <Buttons
+            minSort={minSort}
+            maxSort={maxSort}
+            onCopy={onCopy}
+            onClick={onSort}
+            onClear={onClear}
+            sortedProperties={sortedProperties}
+            unSortedProperties={unSortedProperties}
+         />
+      </div>
+   );
 }
-
-export default App;
