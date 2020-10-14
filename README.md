@@ -71,6 +71,4 @@
 
 <br />
 
-## Demo :
-
-[this link](https://sort-css.netlify.app/)
+<h3>Demo : [this link](https://sort-css.netlify.app/)</h3>
