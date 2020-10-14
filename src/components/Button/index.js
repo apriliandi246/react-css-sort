@@ -1,10 +1,17 @@
-import React from 'react';
-import SortButton from './SortButton';
-import CopyButton from './CopyButton';
-import ClearButton from './ClearButton';
+import React from "react";
+import SortButton from "./SortButton";
+import CopyButton from "./CopyButton";
+import ClearButton from "./ClearButton";
 
-
-export default function Buttons({ minSort, maxSort, sortedProperties, unSortedProperties, onCopy, onClick, onClear }) {
+export default function Buttons({
+   minSort,
+   maxSort,
+   sortedProperties,
+   unSortedProperties,
+   onCopy,
+   onClick,
+   onClear,
+}) {
    return (
       <div className="buttons">
          <SortButton
@@ -14,10 +21,7 @@ export default function Buttons({ minSort, maxSort, sortedProperties, unSortedPr
             onSort={onClick}
          />
 
-         <CopyButton
-            sortedProperties={sortedProperties}
-            onCopy={onCopy}
-         />
+         <CopyButton sortedProperties={sortedProperties} onCopy={onCopy} />
 
          <ClearButton
             unSortedProperties={unSortedProperties}

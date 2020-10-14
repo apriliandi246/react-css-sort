@@ -1,13 +1,11 @@
 body {
-   background-color: #15202B;
+   background-color: #15202b;
 }
-
 
 .container {
    width: 90%;
    margin: 40px auto;
 }
-
 
 h1 {
    color: #ffffff;
@@ -24,7 +22,6 @@ hr {
    margin-bottom: 65px;
    border: 3px dashed #f5f5f5;
 }
-
 
 .min input[type="radio"],
 .max input[type="radio"] {
@@ -50,13 +47,12 @@ hr {
    text-align: center;
 }
 
-
 .properties-field {
    gap: 50px;
    display: grid;
    margin: 50px 0 15px 0;
    grid-template-columns: 1fr 1fr;
-   grid-template-areas: 'properties result';
+   grid-template-areas: "properties result";
 }
 
 .input-form label {
@@ -99,7 +95,6 @@ hr {
    font-family: monospace;
 }
 
-
 .buttons {
    justify-content: center;
    margin: 0 auto;
@@ -139,8 +134,6 @@ hr {
    pointer-events: none;
 }
 
-
-
 /* Responsive Breakpoints */
 @media (max-width: 552px) {
    hr {
@@ -167,6 +160,6 @@ hr {
    .properties-field {
       gap: 50px;
       grid-template-columns: 1fr;
-      grid-template-areas: 'properties''result';
+      grid-template-areas: "properties" "result";
    }
 }

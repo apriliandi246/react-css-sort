@@ -1,12 +1,11 @@
-import React from 'react';
-import copy from 'copy-to-clipboard';
-import { sortProperties } from './util/sort';
-import Head from './components/Head/index';
-import Buttons from './components/Button/index';
-import RadioButton from './components/RadioButton/index';
-import PropertiesArea from './components/PropertiesArea/index';
-import './style/main.css';
-
+import React from "react";
+import copy from "copy-to-clipboard";
+import { sortProperties } from "./util/sort";
+import Head from "./components/Head/index";
+import Buttons from "./components/Button/index";
+import RadioButton from "./components/RadioButton/index";
+import PropertiesArea from "./components/PropertiesArea/index";
+import "./style/main.css";
 
 export default function App() {
    const [minSort, setMinSort] = React.useState(false);
@@ -35,10 +34,13 @@ export default function App() {
 
       const format = {
          smallerToBigger: minSort,
-         biggerToSmaller: maxSort
-      }
+         biggerToSmaller: maxSort,
+      };
 
-      const sortedProperties = sortProperties(unSortedProperties.split("\n"), format);
+      const sortedProperties = sortProperties(
+         unSortedProperties.trim().split(";"),
+         format
+      );
 
       setSortedProperties(sortedProperties);
    }
