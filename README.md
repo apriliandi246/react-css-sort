@@ -38,10 +38,10 @@
    font-size: 18px;
    margin-top: 17px;
    white-space: pre-line;
-   box-sizing: border-box;
    font-family: monospace;
-   background-color: #253341;
+   box-sizing: border-box;
    border: 1px solid #38444d;
+   background-color: #253341;
    transition: background-color 0.2s;
 }
 ```
@@ -62,13 +62,9 @@
    font-size: 18px;
    display: block;
    color: #f5f5f5;
-   outline: none;
    padding: 15px;
+   outline: none;
    resize: none;
    width: 100%;
 }
 ```
-
-<br />
-
-<h4>Demo : https://sort-css.netlify.app/</h4>
