@@ -163,3 +163,7 @@ table {
 .cf {
    *zoom: 1;
 }
+
+body {
+   background-color: #15202b;
+}

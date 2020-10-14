@@ -3,7 +3,7 @@ import React from "react";
 export default function Head() {
    return (
       <React.Fragment>
-         <h1>Make it Pretty</h1>
+         <h1>Sort-it</h1>
          <hr />
       </React.Fragment>
    );

@@ -21,7 +21,7 @@ export default function UnsortPropertyInput({ value, onChange }) {
             cols="65"
             rows="20"
             value={value}
-            id="description"
+            id="properties"
             spellCheck="false"
             autoComplete="false"
             onChange={onChange}
