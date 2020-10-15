@@ -1,23 +1,13 @@
 export function sortProperties(properties, format) {
-   const { smallerToBigger, biggerToSmaller } = format;
+   const result = properties
+      .filter((property) => property.toString().trim() !== "")
+      .map((property) => property.toString().trim() + ";")
+      .sort((a, b) =>
+         format.smallerToBigger === true
+            ? a.length - b.length
+            : b.length - a.length
+      )
+      .join("\n");
 
-   if (smallerToBigger === true) {
-      const result = properties
-         .map((property) => property.toString().trim() + ";")
-         .sort((a, b) => a.length - b.length)
-         .slice(1)
-         .join("\n");
-
-      return result;
-   }
-
-   if (biggerToSmaller === true) {
-      const result = properties
-         .map((property) => property.toString().trim() + ";")
-         .sort((a, b) => b.length - a.length)
-         .slice(0, properties.length - 1)
-         .join("\n");
-
-      return result;
-   }
+   return result;
 }
