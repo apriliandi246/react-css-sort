@@ -98,8 +98,7 @@ hr {
 }
 
 .buttons .btn-one,
-.buttons .btn-two,
-.buttons .btn-three {
+.buttons .btn-two {
    transition: color 0.2s, background-color 0.2s;
    background-color: #253341;
    font-family: monospace;
@@ -117,16 +116,14 @@ hr {
 }
 
 .buttons .btn-one:hover,
-.buttons .btn-two:hover,
-.buttons .btn-three:hover {
+.buttons .btn-two:hover {
    background-color: #192734;
    box-sizing: border-box;
    color: #87cefa;
 }
 
 .buttons .btn-one:disabled,
-.buttons .btn-two:disabled,
-.buttons .btn-three:disabled {
+.buttons .btn-two:disabled {
    pointer-events: none;
 }
 
@@ -144,8 +141,7 @@ hr {
    }
 
    .buttons .btn-one,
-   .buttons .btn-two,
-   .buttons .btn-three {
+   .buttons .btn-two {
       margin-top: 30px;
    }
 

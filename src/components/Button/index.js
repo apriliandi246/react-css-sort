@@ -1,32 +1,35 @@
 import React from "react";
-import SortButton from "./SortButton";
-import CopyButton from "./CopyButton";
-import ClearButton from "./ClearButton";
 
 export default function Buttons({
    minSort,
    maxSort,
+   onCopy,
+   onSort,
    sortedProperties,
    unSortedProperties,
-   onCopy,
-   onClick,
-   onClear,
 }) {
    return (
       <div className="buttons">
-         <SortButton
-            minSort={minSort}
-            maxSort={maxSort}
-            unSortedProperties={unSortedProperties}
-            onSort={onClick}
-         />
+         <button
+            onClick={onSort}
+            className="btn-one"
+            disabled={
+               unSortedProperties.length !== 0 &&
+               (minSort === true || maxSort === true)
+                  ? false
+                  : true
+            }
+         >
+            Sort
+         </button>
 
-         <CopyButton sortedProperties={sortedProperties} onCopy={onCopy} />
-
-         <ClearButton
-            unSortedProperties={unSortedProperties}
-            onClear={onClear}
-         />
+         <button
+            onClick={onCopy}
+            className="btn-two"
+            disabled={sortedProperties.length === 0 ? true : false}
+         >
+            Copy
+         </button>
       </div>
    );
 }

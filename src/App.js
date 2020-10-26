@@ -1,10 +1,8 @@
 import React from "react";
-import copy from "copy-to-clipboard";
-import { sortProperties } from "./util/sort";
-import Head from "./components/Head/index";
-import Buttons from "./components/Button/index";
-import RadioButton from "./components/RadioButton/index";
-import PropertiesArea from "./components/PropertiesArea/index";
+import Head from "./components/Head";
+import Buttons from "./components/Button";
+import RadioButton from "./components/RadioButton";
+import PropertiesArea from "./components/PropertiesArea";
 import "./style/main.css";
 
 export default function App() {
@@ -13,14 +11,16 @@ export default function App() {
    const [sortedProperties, setSortedProperties] = React.useState(``);
    const [unSortedProperties, setUnsortedProperties] = React.useState(``);
 
-   function onChangeMin() {
-      setMinSort(true);
-      setMaxSort(false);
-   }
-
-   function onChangeMax() {
-      setMaxSort(true);
-      setMinSort(false);
+   function setMenu(format) {
+      if (format === "min") {
+         setMinSort(true);
+         setMaxSort(false);
+      } else if (format === "max") {
+         setMinSort(false);
+         setMaxSort(true);
+      } else {
+         return;
+      }
    }
 
    function onInputChange(event) {
@@ -32,41 +32,29 @@ export default function App() {
          return;
       }
 
-      const format = {
-         smallerToBigger: minSort,
-         biggerToSmaller: maxSort,
-      };
+      const result = unSortedProperties
+         .trim()
+         .split(";")
+         .filter((property) => property.toString().trim() !== "")
+         .map((property) => property.toString().trim() + ";")
+         .sort((a, b) =>
+            minSort === true ? a.length - b.length : b.length - a.length
+         )
+         .join("\n");
 
-      const sortedProperties = sortProperties(
-         unSortedProperties.trim().split(";"),
-         format
-      );
-
-      setSortedProperties(sortedProperties);
+      setSortedProperties(result);
    }
 
    function onCopy() {
-      copy(sortedProperties);
+      navigator.clipboard.writeText(sortedProperties);
       alert("Copied....");
-   }
-
-   function onClear() {
-      setMinSort(false);
-      setMaxSort(false);
-      setSortedProperties(``);
-      setUnsortedProperties(``);
    }
 
    return (
       <div className="container">
          <Head />
 
-         <RadioButton
-            minSort={minSort}
-            maxSort={maxSort}
-            onChangeMin={onChangeMin}
-            onChangeMax={onChangeMax}
-         />
+         <RadioButton minSort={minSort} maxSort={maxSort} setMenu={setMenu} />
 
          <PropertiesArea
             value={unSortedProperties}
@@ -78,8 +66,7 @@ export default function App() {
             minSort={minSort}
             maxSort={maxSort}
             onCopy={onCopy}
-            onClick={onSort}
-            onClear={onClear}
+            onSort={onSort}
             sortedProperties={sortedProperties}
             unSortedProperties={unSortedProperties}
          />

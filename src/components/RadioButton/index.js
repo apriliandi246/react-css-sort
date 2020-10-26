@@ -1,18 +1,29 @@
 import React from "react";
-import MinMaxRadioButton from "./MinMaxRadioButton";
-import MaxMinRadioButton from "./MaxMinRadioButton";
 
-export default function RadioButton({
-   minSort,
-   maxSort,
-   onChangeMin,
-   onChangeMax,
-}) {
+export default function RadioButton({ minSort, maxSort, setMenu }) {
    return (
       <React.Fragment>
-         <MinMaxRadioButton minSort={minSort} onChangeMin={onChangeMin} />
+         <div className="min">
+            <input
+               id="min"
+               value="min"
+               type="radio"
+               checked={minSort}
+               onChange={() => setMenu("min")}
+            />
+            <label htmlFor="min">smaller to bigger</label>
+         </div>
 
-         <MaxMinRadioButton maxSort={maxSort} onChangeMax={onChangeMax} />
+         <div className="max">
+            <input
+               id="max"
+               value="max"
+               type="radio"
+               checked={maxSort}
+               onChange={() => setMenu("max")}
+            />
+            <label htmlFor="max">bigger to smaller</label>
+         </div>
       </React.Fragment>
    );
 }
