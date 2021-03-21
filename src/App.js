@@ -8,18 +8,18 @@ import "./style/main.css";
 export default function App() {
    const [minSort, setMinSort] = React.useState(false);
    const [maxSort, setMaxSort] = React.useState(false);
-   const [sortedProperties, setSortedProperties] = React.useState(``);
-   const [unSortedProperties, setUnsortedProperties] = React.useState(``);
+   const [sortedProperties, setSortedProperties] = React.useState("");
+   const [unSortedProperties, setUnsortedProperties] = React.useState("");
 
    function setMenu(format) {
       if (format === "min") {
          setMinSort(true);
          setMaxSort(false);
-      } else if (format === "max") {
+      }
+
+      if (format === "max") {
          setMinSort(false);
          setMaxSort(true);
-      } else {
-         return;
       }
    }
 
@@ -28,9 +28,7 @@ export default function App() {
    }
 
    function onSort() {
-      if (minSort === false && maxSort === false) {
-         return;
-      }
+      if (minSort === false && maxSort === false) return;
 
       const result = unSortedProperties
          .trim()
@@ -50,6 +48,13 @@ export default function App() {
       alert("Copied....");
    }
 
+   function onReset() {
+      setMinSort(false);
+      setMaxSort(false);
+      setUnsortedProperties("");
+      setSortedProperties("");
+   }
+
    return (
       <div className="container">
          <Head />
@@ -67,6 +72,7 @@ export default function App() {
             maxSort={maxSort}
             onCopy={onCopy}
             onSort={onSort}
+            onReset={onReset}
             sortedProperties={sortedProperties}
             unSortedProperties={unSortedProperties}
          />

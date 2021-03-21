@@ -3,7 +3,7 @@ import React from "react";
 export default function Head() {
    return (
       <React.Fragment>
-         <h1>Sort-it</h1>
+         <h1>CSS-sort (first version)</h1>
          <hr />
       </React.Fragment>
    );

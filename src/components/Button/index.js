@@ -5,6 +5,7 @@ export default function Buttons({
    maxSort,
    onCopy,
    onSort,
+   onReset,
    sortedProperties,
    unSortedProperties,
 }) {
@@ -29,6 +30,19 @@ export default function Buttons({
             disabled={sortedProperties.length === 0 ? true : false}
          >
             Copy
+         </button>
+
+         <button
+            onClick={onReset}
+            className="btn-two"
+            disabled={
+               unSortedProperties.length !== 0 &&
+               (minSort === true || maxSort === true)
+                  ? false
+                  : true
+            }
+         >
+            Reset
          </button>
       </div>
    );
