@@ -1,8 +1,14 @@
-<h1 align="center">sort-it</h1>
+<h1 align="center">📶 react-css-sort</h1>
 
-<br />
+<br>
 
-<h3>From this :</h3>
+### 👨‍💻 About
+
+Demo project for my Vscode exntension project.
+
+Here's the [Vscode extension](https://marketplace.visualstudio.com/items?itemName=apriliandi246.css-sort)
+
+<h3>Before :</h3>
 
 ```css
 .component {
@@ -23,9 +29,9 @@
 }
 ```
 
-<br />
+<br>
 
-<h3>To this (smaller to bigger) :</h3>
+<h3>Smaller to Bigger :</h3>
 
 ```css
 .component {
@@ -46,9 +52,9 @@
 }
 ```
 
-<br />
+<br>
 
-<h3>Or this (bigger to smaller) :</h3>
+<h3>Bigger to Smaller :</h3>
 
 ```css
 .component {
@@ -69,6 +75,14 @@
 }
 ```
 
-<br />
+<h3 align="center">. . .</h3>
 
-### You can use Vscode extension too : [vscode extension](https://marketplace.visualstudio.com/items?itemName=apriliandi246.css-sort)
+### 🧰 Tech Stack
+
+[<img alt="html" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white" />](https://developer.mozilla.org/en-US/docs/Web/HTML) — 
+[<img alt="css" src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white" />](https://developer.mozilla.org/en-US/docs/Web/CSS) —
+[<img alt="javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />](https://developer.mozilla.org/en-US/docs/Web/javascript) —
+[<img alt="javascript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" />](https://developer.mozilla.org/en-US/docs/Web/javascript) —
+[<img alt="reactjs" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />](https://reactjs.org/)
+
+<h3 align="right">(⌐■_■)</h3>
